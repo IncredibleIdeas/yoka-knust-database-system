@@ -14,9 +14,52 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for styling
+# Remove Streamlit branding and UI elements
 st.markdown("""
 <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    .stDeployButton {display: none;}
+    #stDecoration {display: none;}
+</style>
+""", unsafe_allow_html=True)
+
+# Custom CSS for styling - ADD THIS TO YOUR EXISTING CSS
+st.markdown("""
+<style>
+    /* Remove Streamlit branding */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    .stDeployButton {display: none;}
+    #stDecoration {display: none;}
+    
+    /* Hide the hamburger menu and other Streamlit elements */
+    .stApp > header {
+        display: none;
+    }
+    
+    /* Hide the 'Hosted with Streamlit' footer */
+    .stApp > footer {
+        display: none;
+    }
+    
+    /* Hide the GitHub icon and other buttons in the header */
+    .stApp > div:first-child {
+        display: none;
+    }
+    
+    /* Hide the rerun button and other controls */
+    .stApp > div[data-testid="stToolbar"] {
+        display: none;
+    }
+    
+    /* Hide the 'Deploy' button */
+    .stApp > div[data-testid="stDeployButton"] {
+        display: none;
+    }
+    
     .main-header {
         font-size: 2.5rem;
         color: #1f77b4;
